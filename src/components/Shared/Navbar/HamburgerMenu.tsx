@@ -3,32 +3,24 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ICONS } from "../../../../public";
-import Ripples from 'react-ripples';
+import DownloadResumeButton from "../DownloadResumeButton/DownloadResumeButton";
 
+type TNavLink = {
+    label: string;
+    icon: string;
+    action: () => void;
+}
 const HamburgerMenu = () => {
     const router = useRouter();
-    //   const [isLightMode, setLightMode] = useState(false)
-    // const [isDarkMode, setDarkMode] = useState(true)
-
-    // const handleLightToggle = () => {
-    //   setLightMode(!isLightMode)
-    //   setDarkMode(false)
-    //   setLightMode(true)
-    // }
-
-    // const handleDarkToggle = () => {
-    //   setDarkMode(!isDarkMode)
-    //   setLightMode(false)
-    //   setDarkMode(true)
-    // }
-
-    const navlinks = [
-        // {
-        //   label: "Home",
-        //   action: () => {
-        //     window.scrollTo({ top: 0, behavior: "smooth" });
-        //   },
-        // },
+    const navLinks: TNavLink[] = [
+        {
+            label: "Home",
+            icon: ICONS.home,
+            action: () => {
+                router.push("/");
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            },
+        },
         {
             label: "About Me",
             icon: ICONS.aboutMe,
@@ -36,7 +28,7 @@ const HamburgerMenu = () => {
                 router.push("/");
                 const aboutMe = document.getElementById("about-me");
                 aboutMe?.scrollIntoView({ behavior: "smooth" });
-                setIsHamburgerOpen(false); // Close the hamburger menu
+                setIsHamburgerOpen(false);
             },
         },
         {
@@ -46,7 +38,7 @@ const HamburgerMenu = () => {
                 router.push("/");
                 const projects = document.getElementById("projects");
                 projects?.scrollIntoView({ behavior: "smooth" });
-                setIsHamburgerOpen(false); // Close the hamburger menu
+                setIsHamburgerOpen(false);
             },
         },
         {
@@ -56,31 +48,30 @@ const HamburgerMenu = () => {
                 router.push("/");
                 const contactMe = document.getElementById("contact-me");
                 contactMe?.scrollIntoView({ behavior: "smooth" });
-                setIsHamburgerOpen(false); // Close the hamburger menu
+                setIsHamburgerOpen(false);
             },
         },
     ];
-
-    const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
-
+    const [isHamburgerOpen, setIsHamburgerOpen] = useState<boolean>(false);
     const toggleHamburgerMenu = () => {
         setIsHamburgerOpen(!isHamburgerOpen);
     };
 
+    // Function to close dropdown clicking outside
     useEffect(() => {
-        const handleOutsideClick = (event) => {
-            const closestDropdown = event.target.closest(".hamburgerMenu");
+        const handleOutsideClick = (event: MouseEvent) => {
+            const closestDropdown = (event.target as Element).closest(".hamburgerMenu");
             if (isHamburgerOpen && closestDropdown === null) {
                 setIsHamburgerOpen(false);
             }
         };
 
         document.addEventListener("mousedown", handleOutsideClick);
-
         return () => {
             document.removeEventListener("mousedown", handleOutsideClick);
         };
     }, [isHamburgerOpen]);
+
     return (
         <div className="relative hamburgerMenu">
             <Image
@@ -91,9 +82,7 @@ const HamburgerMenu = () => {
             />
 
             <div
-                className={`overflow-y-scroll fixed inset-y-0 right-0 z-50 bg-gray-800 w-72 h-screen transition-all duration-300 transform ${isHamburgerOpen ? "translate-x-0" : "translate-x-full"
-                    }`}
-            >
+                className={`overflow-y-scroll fixed inset-y-0 right-0 z-50 bg-gray-800 w-72 h-screen transition-all duration-300 transform ${isHamburgerOpen ? "translate-x-0" : "translate-x-full"}`}>
                 {isHamburgerOpen && (
                     <div className="flex flex-col justify-between h-full">
 
@@ -105,7 +94,7 @@ const HamburgerMenu = () => {
                                 <Image onClick={() => setIsHamburgerOpen(!isHamburgerOpen)} className="w-6 cursor-pointer" src={ICONS.leftArrow} alt="" />
                             </div>
                             <div className="flex flex-col gap-7 p-4 text-start">
-                                {navlinks.map(({ action, label, icon }, index) => (
+                                {navLinks.map(({ action, label, icon }, index) => (
                                     <button
                                         key={index}
                                         onClick={action}
@@ -121,38 +110,7 @@ const HamburgerMenu = () => {
                             </div>
                         </div>
 
-                        <Ripples className="" during={1500} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                            <a
-                                href="/src/assets/Resume_of_Rahul Sutradhar.pdf"
-                                download
-                                className="flex items-center justify-center gap-2 bg-gradient-to-br from-blue-500 to-indigo-800 font-Poppins py-3 px-1 mobileLg:px-3  sm:text-base text-white rounded sm:rounded-[10px] w-full m-4"
-                            >
-                                <span className="text-xs mobileLg:text-base">Download Resume</span>
-                                <Image className="w-5 animate-pulse" src={ICONS.downloadIcon} alt="" />
-                            </a>
-                        </Ripples>
-
-
-
-                        {/* <div className="p-4">
-            <div className="border-gray-600 border rounded-xl h-[45px] flex items-center justify-between px-1">
-        <button
-          className={`${isLightMode ? 'text-blue-500 rounded-lg bg-[#246BFD1A] px-5 py-1 flex items-center gap-1' : 'text-gray-200 px-5 py-2'} focus:outline-none font-roboto font-normal flex items-center gap-1`}
-          onClick={handleLightToggle}
-        >
-          Light <img className="w-5 cursor-pointer" src={sun} alt="" />
-        </button>
-        <button
-          className={`${isDarkMode ? 'text-blue-500 rounded-lg bg-[#246BFD1A] px-5 py-1 flex items-center gap-1' : 'text-gray-200 px-5 py-2'} focus:outline-none font-roboto font-normal flex items-center gap-1`}
-          onClick={handleDarkToggle}
-        >
-          Dark <img className="w-5 cursor-pointer" src={moon} alt="" />
-        </button>
-      </div>
-            </div> */}
-
-
-
+                        <DownloadResumeButton />
                     </div>
                 )}
             </div>

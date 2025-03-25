@@ -2,43 +2,41 @@
 import Container from "@/components/Reusable/Container/Container";
 import { useRouter } from "next/navigation";
 import HamburgerMenu from "./HamburgerMenu";
-import Ripples from 'react-ripples'
-import Image from "next/image";
-import { ICONS } from "../../../../public";
+import DownloadResumeButton from "../DownloadResumeButton/DownloadResumeButton";
+
+interface NavLink {
+    label: string;
+    path?: string;
+    action: () => void;
+}
 
 const Navbar = () => {
     const router = useRouter();
-    const navlinks = [
+
+    const scrollToSection = (sectionId: string) => {
+        router.push("/");
+        const section = document.getElementById(sectionId);
+        section?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Navlinks array
+    const navLinks: NavLink[] = [
         {
             label: "Home",
-            action: () => {
-                window.scrollTo({ top: 0, behavior: "smooth" });
-            },
+            action: () => window.scrollTo({ top: 0, behavior: "smooth" }),
         },
         {
             label: "About Me",
-            action: () => {
-                router.push("/");
-                const aboutMe = document.getElementById("about-me");
-                aboutMe?.scrollIntoView({ behavior: "smooth" });
-            },
+            action: () => scrollToSection("about-me"),
         },
         {
             label: "Projects",
-            action: () => {
-                router.push("/");
-                const projects = document.getElementById("projects");
-                projects?.scrollIntoView({ behavior: "smooth" });
-            },
+            action: () => scrollToSection("projects"),
         },
         {
             label: "Contact Me",
             path: "contact-me",
-            action: () => {
-                router.push("/");
-                const contactMe = document.getElementById("contact-me");
-                contactMe?.scrollIntoView({ behavior: "smooth" });
-            },
+            action: () => scrollToSection("contact-me"),
         },
     ];
     return (
@@ -48,8 +46,10 @@ const Navbar = () => {
                     <h1 className="bg-gradient-to-br from-blue-600 to-indigo-400 bg-clip-text text-transparent font-Montserrat text-[26px] font-bold">
                         Developer Rahul
                     </h1>
-                    <div className="hidden lg:flex items-center gap-7 z-10">
-                        {navlinks.map(({ action, label }, index) => (
+
+                    {/* Navlinks */}
+                    <div className="hidden lg:flex items-center gap-10 z-10">
+                        {navLinks.map(({ action, label }, index) => (
                             <button
                                 key={index}
                                 onClick={action}
@@ -63,16 +63,7 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-6">
-                        <Ripples className="" during={1500} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                            <a
-                                href="/src/assets/Resume_of_Rahul Sutradhar.pdf"
-                                download
-                                className="hidden md:flex items-center gap-2 bg-gradient-to-br from-blue-500 to-indigo-800 font-Poppins py-3 px-1 mobileLg:px-3  sm:text-base text-white rounded sm:rounded-[10px] "
-                            >
-                                <span className="text-xs mobileLg:text-base">Download Resume</span>
-                                <Image className="w-5 animate-pulse" src={ICONS.downloadIcon} alt="" />
-                            </a>
-                        </Ripples>
+                        <DownloadResumeButton />
                         <div className="block lg:hidden">
                             <HamburgerMenu />
                         </div>
