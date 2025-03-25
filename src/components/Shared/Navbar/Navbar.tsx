@@ -9,12 +9,12 @@ import { ICONS } from "../../../../public";
 const Navbar = () => {
     const router = useRouter();
     const navlinks = [
-        // {
-        //   label: "Home",
-        //   action: () => {
-        //     window.scrollTo({ top: 0, behavior: "smooth" });
-        //   },
-        // },
+        {
+            label: "Home",
+            action: () => {
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            },
+        },
         {
             label: "About Me",
             action: () => {
@@ -53,7 +53,7 @@ const Navbar = () => {
                             <button
                                 key={index}
                                 onClick={action}
-                                className="text-white text-base hover:text-[#0997E6] transition duration-400 group flex flex-col"
+                                className="text-white text-base hover:text-[#0997E6] transition duration-400 group flex flex-col cursor-pointer"
                             >
                                 {label} <span className="mt-[2px] h-[1px] w-[0px] rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 transition-all duration-500 group-hover:w-full"></span>
                             </button>
@@ -63,16 +63,6 @@ const Navbar = () => {
                     </div>
 
                     <div className="flex items-center gap-6">
-                        {/* <ToggleBtn /> */}
-
-                        {/* <Ripples className="" during={1500}>
-          <button
-            className="hidden md:flex items-center gap-2 bg-gradient-to-br from-blue-500 to-indigo-800 font-Poppins py-3 px-1 mobileLg:px-3  sm:text-base text-white rounded sm:rounded-[10px] "
-          >
-            <span className="text-xs mobileLg:text-base">Share Your Feedback</span>
-          </button>
-          </Ripples> */}
-
                         <Ripples className="" during={1500} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                             <a
                                 href="/src/assets/Resume_of_Rahul Sutradhar.pdf"
@@ -83,9 +73,6 @@ const Navbar = () => {
                                 <Image className="w-5 animate-pulse" src={ICONS.downloadIcon} alt="" />
                             </a>
                         </Ripples>
-
-
-
                         <div className="block lg:hidden">
                             <HamburgerMenu />
                         </div>

@@ -3,119 +3,138 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ICONS } from "../../../../public";
+import Ripples from 'react-ripples';
 
 const HamburgerMenu = () => {
-  const router = useRouter();
-  //   const [isLightMode, setLightMode] = useState(false)
-  // const [isDarkMode, setDarkMode] = useState(true)
+    const router = useRouter();
+    //   const [isLightMode, setLightMode] = useState(false)
+    // const [isDarkMode, setDarkMode] = useState(true)
 
-  // const handleLightToggle = () => {
-  //   setLightMode(!isLightMode)
-  //   setDarkMode(false)
-  //   setLightMode(true)
-  // }
+    // const handleLightToggle = () => {
+    //   setLightMode(!isLightMode)
+    //   setDarkMode(false)
+    //   setLightMode(true)
+    // }
 
-  // const handleDarkToggle = () => {
-  //   setDarkMode(!isDarkMode)
-  //   setLightMode(false)
-  //   setDarkMode(true)
-  // }
+    // const handleDarkToggle = () => {
+    //   setDarkMode(!isDarkMode)
+    //   setLightMode(false)
+    //   setDarkMode(true)
+    // }
 
-  const navlinks = [
-    // {
-    //   label: "Home",
-    //   action: () => {
-    //     window.scrollTo({ top: 0, behavior: "smooth" });
-    //   },
-    // },
-    {
-      label: "About Me",
-      action: () => {
-        router.push("/");
-        const aboutMe = document.getElementById("about-me");
-        aboutMe?.scrollIntoView({ behavior: "smooth" });
-        setIsHamburgerOpen(false); // Close the hamburger menu
-      },
-    },
-    {
-      label: "Projects",
-      action: () => {
-        router.push("/");
-        const projects = document.getElementById("projects");
-        projects?.scrollIntoView({ behavior: "smooth" });
-        setIsHamburgerOpen(false); // Close the hamburger menu
-      },
-    },
-    {
-      label: "Contact Me",
-      action: () => {
-        router.push("/");
-        const contactMe = document.getElementById("contact-me");
-        contactMe?.scrollIntoView({ behavior: "smooth" });
-        setIsHamburgerOpen(false); // Close the hamburger menu
-      },
-    },
-  ];
+    const navlinks = [
+        // {
+        //   label: "Home",
+        //   action: () => {
+        //     window.scrollTo({ top: 0, behavior: "smooth" });
+        //   },
+        // },
+        {
+            label: "About Me",
+            icon: ICONS.aboutMe,
+            action: () => {
+                router.push("/");
+                const aboutMe = document.getElementById("about-me");
+                aboutMe?.scrollIntoView({ behavior: "smooth" });
+                setIsHamburgerOpen(false); // Close the hamburger menu
+            },
+        },
+        {
+            label: "Projects",
+            icon: ICONS.project,
+            action: () => {
+                router.push("/");
+                const projects = document.getElementById("projects");
+                projects?.scrollIntoView({ behavior: "smooth" });
+                setIsHamburgerOpen(false); // Close the hamburger menu
+            },
+        },
+        {
+            label: "Contact Me",
+            icon: ICONS.contact,
+            action: () => {
+                router.push("/");
+                const contactMe = document.getElementById("contact-me");
+                contactMe?.scrollIntoView({ behavior: "smooth" });
+                setIsHamburgerOpen(false); // Close the hamburger menu
+            },
+        },
+    ];
 
-  const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
+    const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
 
-  const toggleHamburgerMenu = () => {
-    setIsHamburgerOpen(!isHamburgerOpen);
-  };
-
-  useEffect(() => {
-    const handleOutsideClick = (event) => {
-      const closestDropdown = event.target.closest(".hamburgerMenu");
-      if (isHamburgerOpen && closestDropdown === null) {
-        setIsHamburgerOpen(false);
-      }
+    const toggleHamburgerMenu = () => {
+        setIsHamburgerOpen(!isHamburgerOpen);
     };
 
-    document.addEventListener("mousedown", handleOutsideClick);
+    useEffect(() => {
+        const handleOutsideClick = (event) => {
+            const closestDropdown = event.target.closest(".hamburgerMenu");
+            if (isHamburgerOpen && closestDropdown === null) {
+                setIsHamburgerOpen(false);
+            }
+        };
 
-    return () => {
-      document.removeEventListener("mousedown", handleOutsideClick);
-    };
-  }, [isHamburgerOpen]);
-  return (
-    <div className="relative hamburgerMenu">
-      <Image
-        onClick={toggleHamburgerMenu}
-        className="w-10 cursor-pointer"
-        src={ICONS.hamburgerMenu}
-        alt=""
-      />
+        document.addEventListener("mousedown", handleOutsideClick);
 
-      <div
-        className={`overflow-y-scroll fixed inset-y-0 right-0 z-50 bg-gray-800 w-72 h-screen transition-all duration-300 transform ${isHamburgerOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-      >
-        {isHamburgerOpen && (
-          <div className="flex flex-col justify-between h-full">
+        return () => {
+            document.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [isHamburgerOpen]);
+    return (
+        <div className="relative hamburgerMenu">
+            <Image
+                onClick={toggleHamburgerMenu}
+                className="w-10 cursor-pointer"
+                src={ICONS.hamburgerMenu}
+                alt=""
+            />
 
-            <div className="flex flex-col gap-2">
-              <div className="flex justify-between items-center bg-[#0E1330] border-b border-[#282D45] p-4">
-                <h1 className="text-white font-Montserrat text-xl font-bold bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text">
-                  Rahul Sutradhar
-                </h1>
-                <Image onClick={() => setIsHamburgerOpen(!isHamburgerOpen)} className="w-6 cursor-pointer" src={ICONS.leftArrow} alt="" />
-              </div>
-              <div className="flex flex-col gap-7 p-4">
-                {navlinks.map(({ action, label }, index) => (
-                  <button
-                    key={index}
-                    onClick={action}
-                    className="text-white text-base hover:text-[#0997E6] transition duration-400 group flex flex-col"
-                  >
-                    {label} <span className="mt-[2px] h-[1px] w-[0px] rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 transition-all duration-500 group-hover:w-full"></span>
-                  </button>
-                ))}
-              </div>
-            </div>
+            <div
+                className={`overflow-y-scroll fixed inset-y-0 right-0 z-50 bg-gray-800 w-72 h-screen transition-all duration-300 transform ${isHamburgerOpen ? "translate-x-0" : "translate-x-full"
+                    }`}
+            >
+                {isHamburgerOpen && (
+                    <div className="flex flex-col justify-between h-full">
+
+                        <div className="flex flex-col gap-7">
+                            <div className="flex justify-between items-center bg-[#0E1330] border-b border-[#282D45] p-4">
+                                <h1 className="text-white font-Montserrat text-xl font-bold bg-gradient-to-r from-blue-500 to-teal-400 bg-clip-text">
+                                    Rahul Sutradhar
+                                </h1>
+                                <Image onClick={() => setIsHamburgerOpen(!isHamburgerOpen)} className="w-6 cursor-pointer" src={ICONS.leftArrow} alt="" />
+                            </div>
+                            <div className="flex flex-col gap-7 p-4 text-start">
+                                {navlinks.map(({ action, label, icon }, index) => (
+                                    <button
+                                        key={index}
+                                        onClick={action}
+                                        className="text-white text-base hover:text-[#0997E6] transition duration-400 group flex items-center gap-3 text-start"
+                                    >
+                                        <Image src={icon} alt="" className="size-5" />
+                                        <h1 className="flex flex-col">
+                                            {label} <span className="mt-[2px] h-[1px] w-[0px] rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 transition-all duration-500 group-hover:w-full"></span>
+                                        </h1>
+
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <Ripples className="" during={1500} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                            <a
+                                href="/src/assets/Resume_of_Rahul Sutradhar.pdf"
+                                download
+                                className="flex items-center justify-center gap-2 bg-gradient-to-br from-blue-500 to-indigo-800 font-Poppins py-3 px-1 mobileLg:px-3  sm:text-base text-white rounded sm:rounded-[10px] w-full m-4"
+                            >
+                                <span className="text-xs mobileLg:text-base">Download Resume</span>
+                                <Image className="w-5 animate-pulse" src={ICONS.downloadIcon} alt="" />
+                            </a>
+                        </Ripples>
 
 
 
-            {/* <div className="p-4">
+                        {/* <div className="p-4">
             <div className="border-gray-600 border rounded-xl h-[45px] flex items-center justify-between px-1">
         <button
           className={`${isLightMode ? 'text-blue-500 rounded-lg bg-[#246BFD1A] px-5 py-1 flex items-center gap-1' : 'text-gray-200 px-5 py-2'} focus:outline-none font-roboto font-normal flex items-center gap-1`}
@@ -134,11 +153,11 @@ const HamburgerMenu = () => {
 
 
 
-          </div>
-        )}
-      </div>
-    </div>
-  );
+                    </div>
+                )}
+            </div>
+        </div>
+    );
 };
 
 export default HamburgerMenu;
