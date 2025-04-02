@@ -24,6 +24,12 @@ import location from "./Icons/location.svg";
 import phone from "./Icons/call.svg";
 import email from "./Icons/email.svg";
 
+import linkedin from "./Icons/Social Icons/linkedin.svg";
+import facebook from "./Icons/Social Icons/facebook.svg";
+import twitter from "./Icons/Social Icons/twitter.svg";
+import whatsapp from "./Icons/Social Icons/whatsapp.svg";
+import instagram from "./Icons/Social Icons/instagram.svg";
+
 
 // Skills
 import html from "./icons/Skills/html.svg";
@@ -69,6 +75,13 @@ export const ICONS = {
     location,
     phone,
     email,
+
+    // Social Icons
+    linkedin,
+    facebook,
+    twitter,
+    whatsapp,
+    instagram,
 
     // Skills
     html,
