@@ -3,11 +3,10 @@ import TextTransition, { presets } from "react-text-transition";
 import { useEffect, useState } from "react";
 import Ripples from "react-ripples";
 import "aos/dist/aos.css";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
 import CircularAnimatedImg from "./CircularAnimatedImg/CircularAnimatedImg";
-import { ICONS, IMAGES } from "../../../../public";
-import Container from "@/components/Reusable/Container/Container";
+import Container from "../../Reusable/Container/Container";
+import { ICONS, IMAGES } from "../../../assets";
+import { useNavigate } from "react-router-dom";
 
 const TEXTS = [
   "FULL-STACK WEB DEVELOPER",
@@ -23,9 +22,9 @@ const Hero = () => {
     return () => clearTimeout(intervalId);
   }, []);
 
-  const router = useRouter();
+  const navigate = useNavigate();
   const navigateToTalk = () => {
-    router.push("/");
+    navigate("/");
 
     // Delay scrolling for 100 milliseconds (adjust as needed)
     setTimeout(() => {
@@ -37,7 +36,7 @@ const Hero = () => {
   return (
       <div id="home" className="relative">
       <div className="absolute left-1 -top-20">
-        <Image src={IMAGES.e1} alt="" />
+        <img src={IMAGES.e1} alt="" />
       </div>
       <Container>
       <div
@@ -72,7 +71,7 @@ const Hero = () => {
         <Ripples onClick={navigateToTalk} during={1500}>
           <button className="border border-blue-700 bg-gradient-to-br from-blue-500 to-indigo-800 transition duration-300 py-4 px-8 font-Poppins text-white rounded-[30px] flex items-center gap-2">
             Let’s Talk Us
-            <Image className="w-5" src={ICONS.contact} alt="" />
+            <img className="w-5" src={ICONS.contact} alt="" />
           </button>
         </Ripples>
       </div>

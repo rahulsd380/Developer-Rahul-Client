@@ -1,37 +1,36 @@
 
-import { ICONS } from "../../../../../public";
+import { ICONS } from "../../../../assets";
 import "./CircularAnimatedImg.css";
-import Image from "next/image";
 
 const CircularAnimatedImg = () => {
   return (
     <div className="container">
       <div className="hero-circle">
-        <Image className="inner-img animate-pulse" src={ICONS.react} alt="" />
+        <img className="inner-img animate-pulse" src={ICONS.react} alt="" />
         <div className="hero-rotate" id="circle">
           <div className="planet">
-            <Image src={ICONS.css} alt="" />
+            <img src={ICONS.css} alt="" />
           </div>
           <div className="planet">
-            <Image src={ICONS.js} alt="" />
+            <img src={ICONS.js} alt="" />
           </div>
           <div className="planet">
-            <Image src={ICONS.ts} alt="" />
+            <img src={ICONS.ts} alt="" />
           </div>
           <div className="planet">
-            <Image className="" src={ICONS.tailwindcss} alt="" />
+            <img className="" src={ICONS.tailwindcss} alt="" />
           </div>
           <div className="planet">
-            <Image src={ICONS.node} alt="" />
+            <img src={ICONS.node} alt="" />
           </div>
           <div className="planet">
-            <Image src={ICONS.mongodb} alt="" />
+            <img src={ICONS.mongodb} alt="" />
           </div>
           <div className="planet">
-            <Image src={ICONS.github} alt="" />
+            <img src={ICONS.github} alt="" />
           </div>
           <div className="planet">
-            <Image src={ICONS.html} alt="" />
+            <img src={ICONS.html} alt="" />
           </div>
         </div>
       </div>
