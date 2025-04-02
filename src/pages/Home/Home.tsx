@@ -6,6 +6,7 @@ import Projects from "../../components/HomePage/Projects/Projects";
 import ShortResume from "../../components/HomePage/ShortResume/ShortResume";
 import MyServices from '../../components/HomePage/MyServices/MyServices';
 import Blogs from "../../components/HomePage/Blogs/Blogs";
+import GetInTouch from "../../components/HomePage/GetInTouch/GetInTouch";
 
 const Home = () => {
   return (
@@ -25,6 +26,7 @@ const Home = () => {
       <MyServices />
       {/* <Testimonials/> */}
       <Blogs/>
+      <GetInTouch/>
     </div>
   );
 };

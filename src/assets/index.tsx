@@ -20,6 +20,9 @@ import star from "./Icons/star.svg";
 import rightArrow2 from "./Icons/right-arrow.svg";
 import comment from "./Icons/comment.svg";
 import like from "./Icons/like.svg";
+import location from "./Icons/location.svg";
+import phone from "./Icons/call.svg";
+import email from "./Icons/email.svg";
 
 
 // Skills
@@ -63,6 +66,9 @@ export const ICONS = {
     star,
     comment,
     like,
+    location,
+    phone,
+    email,
 
     // Skills
     html,
