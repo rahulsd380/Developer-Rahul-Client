@@ -5,7 +5,7 @@ import Hero from "../../components/HomePage/Hero/Hero";
 import Projects from "../../components/HomePage/Projects/Projects";
 import ShortResume from "../../components/HomePage/ShortResume/ShortResume";
 import MyServices from '../../components/HomePage/MyServices/MyServices';
-import Testimonials from "../../components/HomePage/Testimonials/Testimonials";
+import Blogs from "../../components/HomePage/Blogs/Blogs";
 
 const Home = () => {
   return (
@@ -23,7 +23,8 @@ const Home = () => {
       </div>
       <Projects />
       <MyServices />
-      <Testimonials/>
+      {/* <Testimonials/> */}
+      <Blogs/>
     </div>
   );
 };

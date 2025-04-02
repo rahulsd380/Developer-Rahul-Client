@@ -13,11 +13,14 @@ import education from "./icons/education.svg";
 import upArrowBlue from "./icons/up-arrow-blue.svg";
 import straightLine from "./icons/staright-line.svg";
 import experience from "./icons/experience-white.svg";
-
 import view from "./icons/Skills/view.svg";
 import link from "./icons/link.svg";
 import details from "./icons/details.svg";
 import star from "./Icons/star.svg";
+import rightArrow2 from "./Icons/right-arrow.svg";
+import comment from "./Icons/comment.svg";
+import like from "./Icons/like.svg";
+
 
 // Skills
 import html from "./icons/Skills/html.svg";
@@ -34,12 +37,15 @@ import css from "./icons/Skills/tailwind-css.svg";
 import e1 from "./images/E 1.svg";
 import arrowImg from "./images/arrowImg.png";
 import rahul from "./images/rahul.png";
+import commentimg from "./Images/commentimg.svg";
+import img1 from "./Images/1EC32BFF-A43A-40F3-85EF-BDDAE063ECD8.png";
 
 export const ICONS = {
     downloadIcon,
     hamburgerMenu,
     leftArrow,
     rightArrow,
+    rightArrow2,
     aboutMe,
     contact,
     project,
@@ -55,6 +61,8 @@ export const ICONS = {
     link,
     details,
     star,
+    comment,
+    like,
 
     // Skills
     html,
@@ -72,5 +80,7 @@ export const IMAGES = {
     e1,
     arrowImg,
     rahul,
+    commentimg,
+    img1,
 
 }
