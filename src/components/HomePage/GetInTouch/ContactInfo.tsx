@@ -9,7 +9,7 @@ const ContactInfo = () => {
           My Location
         </h1>
 
-        <p className="text-[#a5a5a5] hover:underline font-Poppins text-[14px]">
+        <p className="text-[#a5a5a5] font-Poppins text-[14px]">
           Kamalapur, Ararsha Sadar, Kotwali, Cumilla-3501, Bangladesh.
         </p>
 
@@ -23,12 +23,12 @@ const ContactInfo = () => {
 
         <div className="flex flex-col gap-1.5">
         <a
-          href="callto:+880 1608249337"
+          href="tel:+880 1608249337"
           className="text-[#a5a5a5] hover:underline font-Poppins text-[14px]">
           +880 1608249337
         </a>
         <a
-          href="callto:+880 1306591485"
+          href="tel:+880 1306591485"
           className="text-[#a5a5a5] hover:underline font-Poppins text-[14px]">
           +880 1306591485
         </a>
@@ -42,10 +42,19 @@ const ContactInfo = () => {
           Say Hello
         </h1>
 
-        <p className="text-[#a5a5a5] hover:underline font-Poppins text-[14px]">
-          <p>rahulsd380@gmail.com</p>
-          <p>rahulsd836@gmail.com</p>
-        </p>
+       
+        <div className="flex flex-col gap-1.5">
+        <a
+          href="mailto:rahulsd380@gmail.com"
+          className="text-[#a5a5a5] hover:underline font-Poppins text-[14px]">
+          rahulsd380@gmail.com
+        </a>
+        <a
+          href="mailto:rahulsd836@gmail.com"
+          className="text-[#a5a5a5] hover:underline font-Poppins text-[14px]">
+          rahulsd836@gmail.com
+        </a>
+        </div>
 
         <div className="w-full h-[1px] bg-gradient-to-br from-blue-500 to-indigo-800"></div>
       </div>

@@ -19,7 +19,7 @@ export const footerInfo = [
   },
   {
     title: "Address",
-    subtitle: "Kamalapur, Cumilla-3501, Bangladesh.",
+    subtitle: "Cumilla-3501, Bangladesh.",
   },
 ];
 
