@@ -8,6 +8,10 @@ import home from "./icons/home.svg";
 import letsTalk from "./icons/talk.svg";
 import ellipse1 from "./icons/Ellipse 11.svg";
 import ellipse2 from "./icons/Ellipse 12.svg";
+import education from "./icons/education.svg";
+import upArrowBlue from "./icons/up-arrow-blue.svg";
+import straightLine from "./icons/staright-line.svg";
+import experience from "./icons/experience-white.svg";
 
 // Skills
 import html from "./icons/Skills/html.svg";
@@ -36,6 +40,10 @@ export const ICONS = {
     letsTalk,
     ellipse1,
     ellipse2,
+    education,
+    upArrowBlue,
+    straightLine,
+    experience,
 
     // Skills
     html,
