@@ -2,7 +2,9 @@ import AboutMe from "../../components/HomePage/AboutMe/AboutMe";
 import Education from "../../components/HomePage/Education/Education";
 import Experience from "../../components/HomePage/Experience/Experience";
 import Hero from "../../components/HomePage/Hero/Hero";
+import Projects from "../../components/HomePage/Projects/Projects";
 import ShortResume from "../../components/HomePage/ShortResume/ShortResume";
+import MyServices from '../../components/HomePage/MyServices/MyServices';
 
 const Home = () => {
   return (
@@ -18,6 +20,8 @@ const Home = () => {
         <div className="hidden lg:block size-[400px] rounded-full bg-[#0696e799] bg-opacity-30 blur-[280px] absolute top-[50px] left-10"></div>
         <div className="hidden lg:block size-[400px] rounded-full bg-[#0696e799] bg-opacity-30 blur-[250px] absolute top-[50px] right-10"></div>
       </div>
+      <Projects />
+      <MyServices />
     </div>
   );
 };

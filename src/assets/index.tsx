@@ -13,6 +13,10 @@ import upArrowBlue from "./icons/up-arrow-blue.svg";
 import straightLine from "./icons/staright-line.svg";
 import experience from "./icons/experience-white.svg";
 
+import view from "./icons/Skills/view.svg";
+import link from "./icons/link.svg";
+import details from "./icons/details.svg";
+
 // Skills
 import html from "./icons/Skills/html.svg";
 import react from "./icons/Skills/reactjs.svg";
@@ -44,6 +48,9 @@ export const ICONS = {
     upArrowBlue,
     straightLine,
     experience,
+    view,
+    link,
+    details,
 
     // Skills
     html,
