@@ -1,6 +1,7 @@
 import downloadIcon from "./icons/download.svg";
 import hamburgerMenu from "./icons/hamburger menu.svg";
 import leftArrow from "./icons/left-arrow.svg";
+import rightArrow from "./Icons/right-arrow (2).svg";
 import aboutMe from "./icons/about-me.svg";
 import contact from "./icons/contact.svg";
 import project from "./icons/project.svg";
@@ -16,6 +17,7 @@ import experience from "./icons/experience-white.svg";
 import view from "./icons/Skills/view.svg";
 import link from "./icons/link.svg";
 import details from "./icons/details.svg";
+import star from "./Icons/star.svg";
 
 // Skills
 import html from "./icons/Skills/html.svg";
@@ -37,6 +39,7 @@ export const ICONS = {
     downloadIcon,
     hamburgerMenu,
     leftArrow,
+    rightArrow,
     aboutMe,
     contact,
     project,
@@ -51,6 +54,7 @@ export const ICONS = {
     view,
     link,
     details,
+    star,
 
     // Skills
     html,
