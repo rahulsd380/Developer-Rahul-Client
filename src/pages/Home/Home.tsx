@@ -18,6 +18,7 @@ const Home = () => {
       setISLoading(false);
     }, 3000);
   }, []);
+
   return (
     <>
       {isLoading ? (
@@ -28,8 +29,8 @@ const Home = () => {
           <Hero />
           <AboutMe />
           <ShortResume />
-          <div className="mt-12 text-white bg-[#0E1330] py-[100px] relative">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8">
+          <div className="text-white bg-[#0E1330] py-[100px] relative mt-28">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
               <Education />
               <Experience />
             </div>

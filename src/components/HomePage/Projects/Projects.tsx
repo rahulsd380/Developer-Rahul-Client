@@ -18,7 +18,7 @@ const Projects = () => {
   );
 
   return (
-    <div id="projects" className="mt-[80px]">
+    <div id="projects" className="mt-28">
       <Container>
       <div>
         <SectionHeading

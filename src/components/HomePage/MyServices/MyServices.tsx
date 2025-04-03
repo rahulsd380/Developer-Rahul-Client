@@ -1,10 +1,12 @@
 import { useGetAllServicesQuery } from '../../../redux/Features/MyServices/myServicesApi';
+import Container from '../../Reusable/Container/Container';
 import SectionHeading from '../../Reusable/SectionHeading/SectionHeading';
 
 const MyServices = () => {
   const { data } = useGetAllServicesQuery({});
   return (
-    <div id="services" className="max-w-6xl mx-auto mt-[80px] px-3 xl:px-0">
+    <div id="services" className="mt-28">
+      <Container>
       <div>
         <SectionHeading
           subHeading={"Awesome Services"}
@@ -33,6 +35,7 @@ const MyServices = () => {
           ))}
         </div>
       </div>
+      </Container>
     </div>
   );
 };

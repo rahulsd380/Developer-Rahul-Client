@@ -9,7 +9,7 @@ const ShortResume = () => {
   const tabButtons = ["Professional Skills", "Achievements"];
 
   return (
-    <div className="mt-[80px]">
+    <div className="mt-28">
       <Container>
         <div>
           <SectionHeading

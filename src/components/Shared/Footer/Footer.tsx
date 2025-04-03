@@ -1,3 +1,4 @@
+import Container from "../../Reusable/Container/Container";
 import { footerInfo, socialLinks } from "./footer.constants";
 // import upArrow from "../../assets/Icons/New folder/up-arrow.svg";
 // import  Ripples  from 'react-ripples';
@@ -7,8 +8,9 @@ const Footer = () => {
   //   window.scrollTo({ top: 0, behavior: "smooth" });
   // }
   return (
-    <div className="mt-[80px] bg-[#0E1330] border-t-2 border-[#282D45] overflow-hidden">
-      <div className="max-w-6xl mx-auto px-3 xl:px-0 flex flex-col gap-9 py-10">
+    <div className="mt-28 bg-[#0E1330] border-t-2 border-[#282D45] overflow-hidden">
+     <Container>
+     <div className="flex flex-col gap-9 py-10">
         {/* All footer info */}
         <div className="flex flex-col md:flex-row gap-5 md:gap-0 justify-between">
           {footerInfo.map((info, index) => (
@@ -71,6 +73,7 @@ const Footer = () => {
 
         </div>
       </div>
+     </Container>
     </div>
   );
 };
