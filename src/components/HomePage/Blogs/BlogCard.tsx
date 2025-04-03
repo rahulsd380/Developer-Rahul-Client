@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ICONS, IMAGES } from './../../../assets/index';
+import { ICONS, IMAGES } from "./../../../assets/index";
 
 const BlogCard = () => {
   const blogDetails = [
@@ -27,9 +27,9 @@ const BlogCard = () => {
     },
   ];
 
-  const [isModalOpen, setIsModakOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [isOpen, setIsOpen] = useState(null);
+  const [isOpen, setIsOpen] = useState<number | null>(null);
   const accordionsData = [
     {
       title: "How do I create an account?",
@@ -52,15 +52,16 @@ const BlogCard = () => {
         "We appreciate our loyal customers! Stay tuned for exclusive discounts, promotions, and special offers available to members of our loyalty program.",
     },
   ];
-  const toggle = (idx) => {
+  const toggle = (idx: number) => {
     setIsOpen((prevIdx) => (prevIdx === idx ? null : idx));
   };
 
+  // Handle outside click for modal
   useEffect(() => {
-    const handleOutsideClick = (event) => {
+    const handleOutsideClick = (event: MouseEvent) => {
       const modalContainer = document.getElementById("closeModal");
-      if (isModalOpen && !modalContainer.contains(event.target)) {
-        setIsModakOpen(false);
+      if (isModalOpen && modalContainer && !modalContainer.contains(event.target as Node)) {
+        setIsModalOpen(false);
       }
     };
 
@@ -94,7 +95,7 @@ const BlogCard = () => {
             Read more
             <img className="w-5" src={ICONS.rightArrow2} alt="" />
           </Link>
-          {/* <button onClick={() => setIsModakOpen(!isModalOpen)} className="font-Poppins text-base font-semibold text-[#0696E7] underline px-5 transition duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 pb-5 w-[157px]">
+          {/* <button onClick={() => setIsModalOpen(!isModalOpen)} className="font-Poppins text-base font-semibold text-[#0696E7] underline px-5 transition duration-300 transform hover:-translate-y-0.5 flex items-center gap-2 pb-5 w-[157px]">
             Read more
             <img className="w-5" src={rihtArrow} alt="" />
           </button> */}
@@ -102,7 +103,7 @@ const BlogCard = () => {
       ))}
 
       <div
-        onClick={() => setIsModakOpen(false)}
+        onClick={() => setIsModalOpen(false)}
         className={`fixed z-[100] flex items-center justify-center ${
           isModalOpen ? "opacity-1 visible" : "invisible opacity-0"
         } inset-0 h-full w-full mx-auto backdrop-blur-sm duration-100 `}

@@ -3,9 +3,19 @@ import { ICONS } from "../../../assets";
 import Ripple from "../../Reusable/Ripple/Ripple";
 import { useGetAllSkillsQuery } from "../../../redux/Features/Skills/skillApi";
 
+type TSkill = {
+  _id: string;
+  skillName: string;
+  icon: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
 const ProfessionalSkills = () => {
   const { data } = useGetAllSkillsQuery({});
   const skills = data?.data || [];
+  console.log(skills);
 
   const [visibleSkills, setVisibleSkills] = useState(8);
 
@@ -21,7 +31,7 @@ const ProfessionalSkills = () => {
     <div className="">
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-4 mt-12 gap-5 lg:gap-0">
         {/* Map through the visible skills */}
-        {skills.slice(0, visibleSkills).map((skill, index: number) => (
+        {skills.slice(0, visibleSkills).map((skill:TSkill, index: number) => (
           <div
             data-aos="fade-up"
             data-aos-duration="2000"

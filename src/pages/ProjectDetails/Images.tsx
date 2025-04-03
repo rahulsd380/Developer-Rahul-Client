@@ -1,63 +1,70 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import LightGallery from 'lightgallery/react';
-import img from "../../assets/Images/Project Cover (3).png";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import 'lightgallery/css/lightgallery.css';
 import 'lightgallery/css/lg-zoom.css';
 import { Navigation } from 'swiper/modules';
 import lgZoom from 'lightgallery/plugins/zoom';
 
-const Images = ({ images } : {images:string[]}) => {
-    const prevRef = useRef(null);
-    const nextRef = useRef(null);
+interface ImagesProps {
+  images: string[];
+}
 
-    return (
-        <div className="relative bg-[#0E1330] border border-[#282D45] rounded-lg h-[500px] group">
-            <LightGallery speed={500} plugins={[lgZoom]} mode="lg-fade">
-                <Swiper
-                    navigation={{
-                        prevEl: prevRef.current,
-                        nextEl: nextRef.current,
-                    }}
-                    onInit={(swiper) => {
-                        swiper.params.navigation.prevEl = prevRef.current;
-                        swiper.params.navigation.nextEl = nextRef.current;
-                        swiper.navigation.init();
-                        swiper.navigation.update();
-                    }}
-                    modules={[Navigation]}
-                    className="mySwiper"
-                >
-                    {images?.map((image:string, index:number) => (
-                        <SwiperSlide key={index}>
-                            <a href={img}>
-                                <img src={image} alt={`Slide ${index + 1}`} className="size-full rounded-lg h-[500px]" />
-                            </a>
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
-            </LightGallery>
+const Images: React.FC<ImagesProps> = ({ images }) => {
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
 
-            {/* Custom Previous Button */}
-            <button
-                ref={prevRef}
-                className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 text-white bg-[#282D45] hover:bg-blue-500 duration-300 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-                <FaChevronLeft size={24} />
-            </button>
+  // Initialize Swiper instance and navigation
+  useEffect(() => {
+    if (prevRef.current && nextRef.current) {
+      // Handle swiper navigation only if refs are available
+      // Swiper's React component handles the swiper instance for us
+    }
+  }, [prevRef, nextRef]);
 
-            {/* Custom Next Button */}
-            <button
-                ref={nextRef}
-                className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 text-white bg-[#282D45] hover:bg-blue-500 duration-300 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-                <FaChevronRight size={24} />
-            </button>
-        </div>
-    );
+  return (
+    <div className="relative bg-[#0E1330] border border-[#282D45] rounded-lg h-[500px] group">
+      <LightGallery speed={500} plugins={[lgZoom]} mode="lg-fade">
+        <Swiper
+          className="mySwiper"
+          modules={[Navigation]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+        >
+          {images?.map((image, index) => (
+            <SwiperSlide key={index}>
+              <a href={image}>
+                <img
+                  src={image}
+                  alt={`Slide ${index + 1}`}
+                  className="w-full rounded-lg h-[500px] object-cover"
+                />
+              </a>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </LightGallery>
+
+      {/* Custom Previous Button */}
+      <button
+        ref={prevRef}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 text-white bg-[#282D45] hover:bg-blue-500 duration-300 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+      >
+        <FaChevronLeft size={24} />
+      </button>
+
+      {/* Custom Next Button */}
+      <button
+        ref={nextRef}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 text-white bg-[#282D45] hover:bg-blue-500 duration-300 p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
+      >
+        <FaChevronRight size={24} />
+      </button>
+    </div>
+  );
 };
 
 export default Images;

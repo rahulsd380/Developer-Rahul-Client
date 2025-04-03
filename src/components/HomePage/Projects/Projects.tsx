@@ -4,6 +4,27 @@ import { useGetAllProjectsQuery } from "../../../redux/Features/Projects/project
 import SectionHeading from "../../Reusable/SectionHeading/SectionHeading";
 import Container from "../../Reusable/Container/Container";
 
+export type TProject = {
+  _id: string;
+  name: string;
+  tagline: string;
+  overview: string;
+  overviewVideo: string;
+  projectType: string;
+  category: string;
+  duration: string;
+  features: string[];
+  backendRepo: string;
+  frontendRepo: string;
+  liveLink: string;
+  images: string[];
+  technologyNames: string[];
+  technologyLogos: string[];
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
 const Projects = () => {
   const { data } = useGetAllProjectsQuery({});
   console.log(data);
@@ -11,10 +32,10 @@ const Projects = () => {
   const tabButtons = ["Personal Projects", "Company Projects"];
 
   const personalProjects = data?.data?.filter(
-    (project) => project.projectType === "Personal"
+    (project:TProject) => project.projectType === "Personal"
   );
   const companyProjects = data?.data?.filter(
-    (project) => project.projectType === "Company"
+    (project:TProject) => project.projectType === "Company"
   );
 
   return (
@@ -33,7 +54,7 @@ const Projects = () => {
 
         {activeTab === "Personal Projects" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-12">
-            {personalProjects?.map((project) => (
+            {personalProjects?.map((project:TProject) => (
               <ProjectCard key={project?._id} project={project} />
             ))}
           </div>
@@ -41,7 +62,7 @@ const Projects = () => {
 
         {activeTab === "Company Projects" && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-12">
-            {companyProjects?.map((project) => (
+            {companyProjects?.map((project:TProject) => (
               <ProjectCard key={project?._id} project={project} />
             ))}
           </div>

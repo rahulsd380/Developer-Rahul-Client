@@ -1,29 +1,31 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BaseQueryFn, createApi, FetchBaseQueryError, FetchArgs, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseQuery = async (args, api, extraOptions) => {
+const baseQuery: BaseQueryFn<FetchArgs, unknown, FetchBaseQueryError> = async (args, api, extraOptions) => {
   const rawBaseQuery = fetchBaseQuery({
-    baseUrl: "https://portfolio-for-rahul-server.vercel.app/api/v1",
-    credentials: "include",
+    baseUrl: 'https://portfolio-for-rahul-server.vercel.app/api/v1',
+    credentials: 'include',
   });
 
   const result = await rawBaseQuery(args, api, extraOptions);
 
-  // If an error occurs, pass it along to the component
+  // Check if there's an error and handle it
   if (result.error) {
-    // This error will be caught in the component
     return {
       error: {
         status: result.error.status,
-        data: result.error.data || "Something went wrong!",
-      },
+        data: result.error.data || 'Something went wrong!',
+      } as FetchBaseQueryError,
     };
   }
 
-  return result;
+  // Return result as expected by BaseQueryFn
+  return {
+    data: result.data,
+  };
 };
 
 export const baseApi = createApi({
-  reducerPath: "baseApi",
+  reducerPath: 'baseApi',
   baseQuery,
   tagTypes: ["skills", "projects", "achievements", "myServices", "endorsements"],
   endpoints: () => ({}),

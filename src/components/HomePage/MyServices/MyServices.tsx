@@ -2,8 +2,19 @@ import { useGetAllServicesQuery } from '../../../redux/Features/MyServices/mySer
 import Container from '../../Reusable/Container/Container';
 import SectionHeading from '../../Reusable/SectionHeading/SectionHeading';
 
+type TService = {
+  _id: string;
+  name: string;
+  description: string;
+  icon: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+};
+
 const MyServices = () => {
   const { data } = useGetAllServicesQuery({});
+  console.log(data?.data);
   return (
     <div id="services" className="mt-28">
       <Container>
@@ -14,7 +25,7 @@ const MyServices = () => {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-[90px]">
-          {data?.data?.map((info, index) => (
+          {data?.data?.map((info:TService, index:number) => (
             <div
               data-aos="fade-up"
               data-aos-duration="2000"

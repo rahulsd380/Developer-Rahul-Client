@@ -2,22 +2,10 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { ICONS } from "./../../../assets/index";
 import Ripple from "../../Reusable/Ripple/Ripple";
+import { TProject } from "./Projects";
 
-// Define the type for a single project
-type Project = {
-  _id: string;
-  name: string;
-  tagline: string;
-  images: string[];
-  sourceCode: string;
-  liveLink: string;
-  technologyNames: string[];
-  projectType: "Personal" | "Team"; // Example of specific project types
-};
-
-// Define the props type for the ProjectCard component
 type ProjectCardProps = {
-  project: Project;
+  project: TProject;
 };
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
@@ -26,7 +14,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     name,
     tagline,
     images,
-    sourceCode,
+    frontendRepo,
     liveLink,
     technologyNames,
     projectType,
@@ -90,15 +78,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
         <div className="flex items-center justify-between">
           {projectType === "Personal" && (
-            <Link
-              to={`/${sourceCode}`}
+            <a
+              href={`/${frontendRepo}`}
               className="flex items-center gap-2 transition duration-300 transform hover:-translate-y-0.5"
             >
               <img className="w-10" src={ICONS.github} alt="" />
               <p className="text-white font-Montserrat text-base font-semibold">
                 Source Code
               </p>
-            </Link>
+            </a>
           )}
 
           <div ref={dropDownRef} className="relative">
