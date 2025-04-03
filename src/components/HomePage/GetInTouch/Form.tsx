@@ -4,10 +4,12 @@ import { toast } from "sonner";
 import Ripple from "../../Reusable/Ripple/Ripple";
 
 const Form = () => {
-  const form = useRef();
+  const form = useRef<HTMLFormElement | null>(null);
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!form.current) return;
 
     emailjs
       .sendForm("service_6ucobnr", "template_ip8soen", form.current, {
@@ -24,8 +26,8 @@ const Form = () => {
             className: "class",
           });
         },
-        (error) => {
-          toast.error("Failed! try again.")
+        () => {
+          toast.error("Failed! Try again.");
         }
       );
   };
@@ -52,7 +54,7 @@ const Form = () => {
         />
       </div>
       <input
-        // name='subject'
+        name="subject"
         placeholder="Subject*"
         type="text"
         className="outline-none bg-[#0E1330] border border-[#282D45] rounded-[10px] py-3 px-5 w-full text-white focus:border-[0.2px] focus:border-[#0696E7]/50 transition duration-300"
