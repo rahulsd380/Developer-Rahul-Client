@@ -1,0 +1,15 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="megaphone 1">
+<g id="Page-1">
+<g id="Icon-Set">
+<path id="megaphone" fill-rule="evenodd" clip-rule="evenodd" d="M45 37.5L34.5 30V12L45 4.5V37.5ZM31.5 28.5H27V13.5H31.5V28.5ZM24 28.5H12C9.018 28.5 3 27.627 3 21C3 14.373 8.919 13.4025 12 13.5H24V28.5ZM16.5 42C16.5 42.8295 15.828 43.5 15 43.5H13.5C12.672 43.5 12 42.8295 12 42V31.5H16.5V42ZM45 1.5L31.5 10.5H12C5.373 10.5 0 14.373 0 21C0 26.5995 3.813 30.5085 9 31.5C9.0675 31.905 9 43.5 9 43.5C9 45.156 10.344 46.5 12 46.5H16.5C18.156 46.5 19.5 45.156 19.5 43.5V31.5H31.5L45 40.5C46.656 40.5 48 39.156 48 37.5V4.5C48 2.844 46.656 1.5 45 1.5Z" fill="url(#paint0_linear_0_4347)"/>
+</g>
+</g>
+</g>
+<defs>
+<linearGradient id="paint0_linear_0_4347" x1="24" y1="1.5" x2="24" y2="46.5" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8C52FF"/>
+<stop offset="1" stop-color="#A276FA"/>
+</linearGradient>
+</defs>
+</svg>

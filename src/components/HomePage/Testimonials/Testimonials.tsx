@@ -1,23 +1,45 @@
-// import SectionHeading from "../../Reusable/SectionHeading/SectionHeading";
-// import TestimonialsCard from "./TestimonialsCard";
+import Heading from "@/components/Reusable/Heading/Heading";
+import TestimonialCard from "./TestimonialCard";
+import Marquee from "react-fast-marquee";
 
-// const Testimonials = () => {
-//   return (
-//     <div className="mt-[80px] bg-[#0E1330] py-[100px] relative">
-//       <div className="hidden lg:block w-[400px] h-[400px] rounded-full bg-[#0696e799] bg-opacity-30 blur-[250px] absolute top-[50px] left-2"></div>
+const Testimonials = () => {
+    const testimonials = [
+        {
+            name: "Rahul Sutradhar",
+            brandName: "MITRA Consultancy",
+            review: "Lorem ipsum dolor sit amet consectetur. Dignissim massa porta ornare duis sed tellus sapien sagittis. Feugiat donec a montes mi elit vel ultrices sit vestibulum. Molestie augue in orci ridiculus aenean vitae volutpat in et. Lorem ipsum dolor sit amet consectetur. Dignissim massa porta ornare duis sed tellus sapien sagittis. Feugiat donec a montes mi elit vel ultrices sit vestibulum. Molestie augue in orci ridiculus aenean vitae volutpat in et."
+        },
+        {
+            name: "Rahul Sutradhar",
+            brandName: "MITRA Consultancy",
+            review: "Lorem ipsum dolor sit amet consectetur. Dignissim massa porta ornare duis sed tellus sapien sagittis. Feugiat donec a montes mi elit vel ultrices sit vestibulum. Molestie augue in orci ridiculus aenean vitae volutpat in et."
+        },
+        {
+            name: "Rahul Sutradhar",
+            brandName: "MITRA Consultancy",
+            review: "Lorem ipsum dolor sit amet consectetur. Dignissim massa porta ornare duis sed tellus sapien sagittis. Feugiat donec a montes mi elit vel ultrices sit vestibulum. Molestie augue in orci ridiculus aenean vitae volutpat in et."
+        },
+        {
+            name: "Rahul Sutradhar",
+            brandName: "MITRA Consultancy",
+            review: "Lorem ipsum dolor sit amet consectetur. Dignissim massa porta ornare duis sed tellus sapien sagittis. Feugiat donec a montes mi elit vel ultrices sit vestibulum. Molestie augue in orci ridiculus aenean vitae volutpat in et."
+        },
+        {
+            name: "Rahul Sutradhar",
+            brandName: "MITRA Consultancy",
+            review: "Lorem ipsum dolor sit amet consectetur. Dignissim massa porta ornare duis sed tellus sapien sagittis. Feugiat donec a montes mi elit vel ultrices sit vestibulum. Molestie augue in orci ridiculus aenean vitae volutpat in et."
+        },
+    ];
+    return (
+        <div className="bg-gradient-dark py-[96px] ">
+            <Heading heading="Our Testimonials" description="See how brands and creators are transforming their campaigns with INPLUTO." />
+            <Marquee speed={30} className="flex items-center mt-[64px]" direction="left" pauseOnHover>
+                {testimonials.map((testimonial) => (
+                    <TestimonialCard key={testimonial.review} {...testimonial} />
+                ))}
+            </Marquee>
+        </div>
+    );
+};
 
-//       <div className="">
-//         <SectionHeading
-//           subHeading={"Experience With Me"}
-//           heading={"Endorsements"}
-//         />
-
-//         <div className="max-w-6xl mx-auto px-3 xl:px-0">
-//           <TestimonialsCard />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Testimonials;
+export default Testimonials;
